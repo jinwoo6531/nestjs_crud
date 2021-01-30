@@ -44,11 +44,16 @@ export class TasksService {
     return found;
   }
 
+  //계정생성
   async createTask(createTaskDto: CreateTaskDto): Promise<Task> {
     return this.taskRepository.createTask(createTaskDto);
   }
 
-  //   //계정생성
+  //삭제
+  async deleteTask(id: number): Promise<void> {
+    const result = await this.taskRepository.delete(id);
+  }
+
   //   createTask(createTaskDto: CreateTaskDto): Task {
   //     const { title, description } = createTaskDto;
   //     const task: Task = {
